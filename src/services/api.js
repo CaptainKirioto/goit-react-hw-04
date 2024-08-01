@@ -1,8 +1,19 @@
 import axios from "axios";
 
-export const fetchImages = async () => {
-  const response = await axios.get(
-    "https://api.unsplash.com/photos/?client_id=727gOy69tyeyfXPWewhpw1BCd94fcx4353H_X08pkK4"
-  );
+const API_KEY = "727gOy69tyeyfXPWewhpw1BCd94fcx4353H_X08pkK4";
+
+axios.defaults.baseURL = "https://api.unsplash.com";
+axios.defaults.headers.common["Authorization"] = `Client-ID ${API_KEY}`;
+axios.defaults.headers.common["Accept-Version"] = "v1";
+
+const fetchImages = async (query) => {
+  const response = await axios.get("/search/photos", {
+    params: {
+      query: query,
+      per_page: 10,
+    },
+  });
   return response.data;
 };
+
+export default fetchImages;
