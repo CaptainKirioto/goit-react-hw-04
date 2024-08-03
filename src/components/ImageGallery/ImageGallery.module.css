@@ -1,5 +1,15 @@
-.gallery {
+/* .gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+} */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
+
+/* .imgItem {
+
+} */

@@ -4,7 +4,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import fetchImages from "./services/api";
-// import Modal from "./components/ImageModal/ImageModal";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 import "./App.css";
 
@@ -35,11 +35,11 @@ function App() {
   }, [query]);
 
   const openModal = (image) => {
-    setModalIsOpen(true);
     setSelectedImage(image);
+    setModalIsOpen(true);
   };
 
-  const CloseModal = () => {
+  const closeModal = () => {
     setModalIsOpen(false);
     setSelectedImage(null);
   };
@@ -52,8 +52,16 @@ function App() {
   return (
     <>
       <SeacrhBar onSearch={handleSearch} query={query} />
-      {/* <Modal isOpen={modalIsOpen} closeModal={closeModal}></Modal> */}
-      {images.length > 0 && <ImageGallery images={images} />}
+      {selectedImage && (
+        <ImageModal
+          isOpen={modalIsOpen}
+          closeModal={closeModal}
+          image={selectedImage}
+        />
+      )}
+      {images.length > 0 && (
+        <ImageGallery images={images} openModal={openModal} />
+      )}
       {loader && <Loader />}
       {error && <ErrorMessage />}
     </>
