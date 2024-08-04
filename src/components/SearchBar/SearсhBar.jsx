@@ -1,7 +1,7 @@
 import s from "./SearchBar.module.css";
 import toast from "react-hot-toast";
 
-const SeacrhBar = ({ onSearch }) => {
+const SearсhBar = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,6 +15,7 @@ const SeacrhBar = ({ onSearch }) => {
 
   return (
     <header>
+      <h1 className={s.head}>Welcome to Peach Gallery! 🍑</h1>
       <form onSubmit={handleSubmit} className={s.form}>
         <input
           className={s.input}
@@ -32,4 +33,4 @@ const SeacrhBar = ({ onSearch }) => {
   );
 };
 
-export default SeacrhBar;
+export default SearсhBar;

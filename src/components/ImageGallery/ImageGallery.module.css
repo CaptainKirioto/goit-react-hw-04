@@ -1,15 +1,11 @@
-/* .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-} */
-
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(3, 400px);
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-/* .imgItem {
-
-} */
+.item {
+  width: 100%;
+}
